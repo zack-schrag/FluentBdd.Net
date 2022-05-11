@@ -11,3 +11,4 @@
 {{/HasError}}
 </details>
 {{/ScenarioStepResults}}
+<br />
