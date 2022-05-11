@@ -1,4 +1,4 @@
-### Scenario: {{ScenarioName}}
+## Scenario: {{ScenarioName}}
 {{ScenarioDescription}}
 {{#ScenarioStepResults}}
 <details>

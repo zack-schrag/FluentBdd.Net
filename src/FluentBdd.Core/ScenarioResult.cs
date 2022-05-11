@@ -19,7 +19,7 @@ public class ScenarioResult<T> : IScenarioResult
     private readonly T? _context;
     public object? Context => _context;
     public string ScenarioName => _scenario.ScenarioName;
-    public string ScenarioDescription => _scenario.ScenarioDescription;
+    public string? ScenarioDescription => _scenario.ScenarioDescription;
     public List<ScenarioStepResult> ScenarioStepResults { get; }
 
     public ScenarioResult(Scenario<T> scenario, T? context)

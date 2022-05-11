@@ -1,6 +1,4 @@
-﻿using Xunit.Sdk;
-
-namespace FluentBdd.Core
+﻿namespace FluentBdd.Core
 {
     public class Scenario<T>
     {
@@ -81,7 +79,7 @@ namespace FluentBdd.Core
                         StepType = step.StepType
                     });
                 }
-                catch (XunitException e)
+                catch (Exception e)
                 {
                     scenarioResult.AddStepResult(new ScenarioStepResult
                     {
@@ -121,7 +119,7 @@ namespace FluentBdd.Core
                         StepType = step.StepType
                     });
                 }
-                catch (XunitException e)
+                catch (Exception e)
                 {
                     scenarioResult.AddStepResult(new ScenarioStepResult
                     {
@@ -138,7 +136,6 @@ namespace FluentBdd.Core
             Feature.AddScenarioResult(scenarioResult);
             return scenarioResult;
         }
-
 
         private Scenario<T> Insert(string lineType, string description, Action<T> action)
         {

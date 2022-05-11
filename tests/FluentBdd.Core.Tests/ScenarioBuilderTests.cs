@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using RestSharp;
 using Xunit;
@@ -49,8 +50,9 @@ namespace FluentBdd.Core.Tests
 
                     context.Result = result;
                 })
-                .Then("I should see {{Age}} as my age", (context) =>
+                .Then("I should see {{Age}} as my age", async (context) =>
                 {
+                    await Assert.ThrowsAsync<ArgumentException>(() => throw new ArgumentException("blah"));
                     Assert.True(context?.Result?.IsSuccessful);
                     Assert.Equal(expectedFirstName, context?.Result?.Data?.Name);
                     Assert.Equal(expectedAge, context?.Result?.Data?.Age);

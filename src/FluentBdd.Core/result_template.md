@@ -1,4 +1,4 @@
-## Feature: {{Name}}
+# Feature: {{Name}}
 {{Description}}
 
 {{#ScenarioResults}}
