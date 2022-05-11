@@ -14,10 +14,10 @@ namespace FluentBdd.Core
     {
         public Feature Feature { get; }
         public string ScenarioName { get; }
-        public string ScenarioDescription { get; }
+        public string? ScenarioDescription { get; }
         public List<ScenarioStep<T>> Steps { get; }
 
-        public Scenario(Feature feature, string scenarioName, string scenarioDescription = null)
+        public Scenario(Feature feature, string scenarioName, string? scenarioDescription = null)
         {
             Feature = feature;
             ScenarioName = scenarioName;
@@ -65,7 +65,7 @@ namespace FluentBdd.Core
             return Insert("THEN", description, action);
         }
 
-        public ScenarioResult<T> Execute(T context, string resultsPath = "results.md")
+        public ScenarioResult<T> Execute(T context)
         {
             var scenarioResult = new ScenarioResult<T>(this, context);
 
@@ -107,7 +107,7 @@ namespace FluentBdd.Core
             return scenarioResult;
         }
 
-        public async Task<ScenarioResult<T>> ExecuteAsync(T context, string resultsPath = "results.md")
+        public async Task<ScenarioResult<T>> ExecuteAsync(T context)
         {
             var scenarioResult = new ScenarioResult<T>(this, context);
 
