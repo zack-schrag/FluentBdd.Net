@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentBdd.Core.Tests;
+namespace FluentBdd.Net.Tests;
 
 public class MyFeatureFixture : IDisposable
 {

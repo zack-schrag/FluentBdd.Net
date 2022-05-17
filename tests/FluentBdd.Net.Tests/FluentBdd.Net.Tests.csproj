@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FluentBdd.Core\FluentBdd.Core.csproj" />
+    <ProjectReference Include="..\..\src\FluentBdd.Net\FluentBdd.Net.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,13 +9,4 @@
 	<ItemGroup>
 		<PackageReference Include="Stubble.Core" Version="1.9.3" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <None Update="scenario_result_template.md">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="result_template.md">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	</ItemGroup>
 </Project>

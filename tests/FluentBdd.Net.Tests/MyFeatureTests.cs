@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using RestSharp;
 using Xunit;
 
-namespace FluentBdd.Core.Tests
+namespace FluentBdd.Net.Tests
 {
     public class MyFeatureTests : IClassFixture<MyFeatureFixture>
     {
@@ -56,10 +56,7 @@ namespace FluentBdd.Core.Tests
                     Assert.Equal(expectedAge, context?.Result?.Data?.Age);
                 });
 
-            await scenario.ExecuteAsync(new MyCustomContext
-            {
-                FirstName = expectedFirstName
-            });
+            await scenario.ExecuteAsync(new MyCustomContext());
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace FluentBdd.Core
+﻿using Stubble.Core.Builders;
+using Stubble.Core.Settings;
+
+namespace FluentBdd.Net
 {
     public class Scenario<T>
     {
@@ -72,10 +75,18 @@
                 try
                 {
                     step.Action?.Invoke(context);
+
+                    var stubble = new StubbleBuilder().Build();
+
+                    var stepDescriptionWithContextValues = stubble.Render(step.StepDescription, context, new RenderSettings
+                    {
+                        SkipHtmlEncoding = true
+                    });
+
                     scenarioResult.AddStepResult(new ScenarioStepResult
                     {
                         Passed = true,
-                        StepDescription = step.StepDescription,
+                        StepDescription = stepDescriptionWithContextValues,
                         StepType = step.StepType
                     });
                 }
@@ -112,10 +123,17 @@
                         await step.AsyncFunc(context);
                     }
 
+                    var stubble = new StubbleBuilder().Build();
+
+                    var stepDescriptionWithContextValues = await stubble.RenderAsync(step.StepDescription, context, new RenderSettings
+                    {
+                        SkipHtmlEncoding = true
+                    });
+
                     scenarioResult.AddStepResult(new ScenarioStepResult
                     {
                         Passed = true,
-                        StepDescription = step.StepDescription,
+                        StepDescription = stepDescriptionWithContextValues,
                         StepType = step.StepType
                     });
                 }

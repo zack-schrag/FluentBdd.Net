@@ -1,4 +1,4 @@
-﻿namespace FluentBdd.Core;
+﻿namespace FluentBdd.Net;
 
 public class ScenarioStep<T>
 {
