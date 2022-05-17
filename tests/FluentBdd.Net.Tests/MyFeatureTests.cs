@@ -56,6 +56,7 @@ namespace FluentBdd.Net.Tests
                     Assert.Equal(expectedAge, context?.Result?.Data?.Age);
                 });
 
+            
             await scenario.ExecuteAsync(new MyCustomContext());
         }
     }

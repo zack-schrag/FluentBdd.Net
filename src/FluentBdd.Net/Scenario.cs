@@ -67,7 +67,7 @@ namespace FluentBdd.Net
             if (hasAsync)
             {
                 throw new ArgumentException(
-                    "Cannot call Execute() when there are async actions. Use ExecuteAsync() instead");
+                    "Cannot call Execute() when there are async functions. Use ExecuteAsync() instead");
             }
 
             foreach (var step in Steps)
