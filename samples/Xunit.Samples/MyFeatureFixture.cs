@@ -1,6 +1,7 @@
 using System;
+using FluentBdd.Net;
 
-namespace FluentBdd.Net.Tests;
+namespace Xunit.Samples;
 
 public class MyFeatureFixture : IDisposable
 {
