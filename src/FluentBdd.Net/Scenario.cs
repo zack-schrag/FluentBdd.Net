@@ -76,7 +76,12 @@ namespace FluentBdd.Net
                 {
                     step.Action?.Invoke(context);
 
-                    var stubble = new StubbleBuilder().Build();
+                    var stubble = new StubbleBuilder()
+                        .Configure(settings =>
+                        {
+                            settings.SetIgnoreCaseOnKeyLookup(true);
+                        })
+                        .Build();
 
                     var stepDescriptionWithContextValues = stubble.Render(step.StepDescription, context, new RenderSettings
                     {
@@ -123,7 +128,12 @@ namespace FluentBdd.Net
                         await step.AsyncFunc(context);
                     }
 
-                    var stubble = new StubbleBuilder().Build();
+                    var stubble = new StubbleBuilder()
+                        .Configure(settings =>
+                        {
+                            settings.SetIgnoreCaseOnKeyLookup(true);
+                        })
+                        .Build();
 
                     var stepDescriptionWithContextValues = await stubble.RenderAsync(step.StepDescription, context, new RenderSettings
                     {
