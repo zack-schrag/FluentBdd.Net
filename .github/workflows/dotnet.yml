@@ -6,7 +6,9 @@ on:
 
 jobs:
   build:
-
+    name: Build and Publish
+    permissions:
+        repository-projects: write
     runs-on: ubuntu-latest
 
     steps:
