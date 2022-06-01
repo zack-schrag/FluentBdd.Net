@@ -35,11 +35,10 @@ jobs:
         tag: ${{ steps.tag_version.outputs.new_tag }}
         name: Release ${{ steps.tag_version.outputs.new_tag }}
         body: ${{ steps.tag_version.outputs.changelog }}
-    - name: Publish NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.5
+    - name: Pack
+      run: dotnet pack src/FluentBdd.Net/FluentBdd.Net.csproj -o ./ -c Release /p:Version=${{ steps.tag_version.outputs.new_tag }}
+    - uses: EasyDesk/action-nuget-push@v1
       with:
-        # Filepath of the project to be packaged, relative to root of repository
-        PROJECT_FILE_PATH: src/FluentBdd.Net/FluentBdd.Net.csproj
-        VERSION_STATIC: ${{ steps.tag_version.outputs.new_tag }}
-        TAG_COMMIT: false
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        # (Required) The API key used to authenticate the upload of the package.
+        # Can be generated via the NuGet portal.
+        nuget-api-key: ${{ secrets.NUGET_KEY }}
