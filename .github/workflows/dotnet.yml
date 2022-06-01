@@ -42,4 +42,5 @@ jobs:
         BUILD_CONFIGURATION: Release
         VERSION_STATIC: ${{ steps.tag_version.outputs.new_tag }}
         TAG_COMMIT: false
+        TAG_FORMAT: "*"
         NUGET_KEY: ${{ secrets.NUGET_KEY }}
